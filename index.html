@@ -84,25 +84,21 @@
       overflow: hidden;
       box-shadow: 0 10px 30px rgba(0, 0, 0, 0.15);
       max-width: 1500px;
-      border: 5px solid #b1acac;
+      border: 5px solid #b1acac; /* Red border from cape */
       position: center;
     }
     .book-1 {
       border-radius: 20px 0 0 20px;
       object-fit: cover;
       height: 100%;
+      width: 100%;
     }
     #title {
       font-family: 'Fredoka One', cursive;
       color: #FF4040; /* Red from cape */
       font-size: 2.5rem;
       text-shadow: 2px 2px 4px #FFD700; /* Yellow glow */
-      margin-bottom: 50px;
-    }
-    #author {
-      font-size: 1.2rem;
-      color: #FF8C00; /* Orange for contrast */
-      font-weight: 600;
+      margin-bottom: 30px;
     }
     .btn-primary {
       background: #FFD700; /* Yellow from book text */
@@ -154,6 +150,98 @@
       font-size: 0.9rem;
       margin-top: 5px;
     }
+
+    /* Responsive Design for Tablets (576px - 992px) */
+    @media (max-width: 992px) {
+      .info {
+        padding: 30px 0; /* Reduce padding for tablets */
+      }
+      .card {
+        max-width: 90%; /* Reduce card width */
+        border-radius: 20px; /* Slightly smaller border radius */
+      }
+      .book-1 {
+        border-radius: 20px 20px 0 0; /* Adjust border radius for stacking */
+        height: auto; /* Allow image to scale naturally */
+      }
+      .col-md-4, .col-md-8 {
+        flex: 0 0 100%; /* Stack columns vertically */
+        max-width: 100%;
+      }
+      .col-md-8 {
+        padding: 20px; /* Reduce padding inside card */
+      }
+      #title {
+        font-size: 2rem; /* Smaller title */
+        margin-bottom: 20px;
+      }
+      .boxLeft {
+        font-size: 0.9rem; /* Smaller description text */
+      }
+      .btn-primary {
+        padding: 10px 20px; /* Smaller buttons */
+        font-size: 1rem;
+      }
+      .navbar-brand img {
+        width: 150px; /* Smaller logo for tablets */
+      }
+      .footer {
+        padding: 15px 0; /* Reduce footer padding */
+      }
+      .footer h5 {
+        font-size: 1.2rem; /* Smaller heading */
+      }
+      .footer p, .footer a {
+        font-size: 0.8rem; /* Smaller text */
+      }
+    }
+
+    /* Responsive Design for Mobile (below 576px) */
+    @media (max-width: 576px) {
+      .info {
+        padding: 20px 0; /* Further reduce padding for mobile */
+      }
+      .card {
+        max-width: 95%; /* Almost full width */
+        border-radius: 15px; /* Smaller border radius */
+        border-width: 3px; /* Thinner border */
+      }
+      .book-1 {
+        border-radius: 15px 15px 0 0; /* Adjust border radius for stacking */
+      }
+      .col-md-8 {
+        padding: 15px; /* Further reduce padding */
+      }
+      #title {
+        font-size: 1.5rem; /* Even smaller title */
+        margin-bottom: 15px;
+      }
+      .boxLeft {
+        font-size: 0.8rem; /* Smaller description text */
+      }
+      .btn-primary {
+        display: block; /* Stack buttons vertically */
+        width: 100%; /* Full-width buttons */
+        margin: 10px 0; /* Add spacing between buttons */
+        padding: 8px 15px; /* Smaller buttons */
+        font-size: 0.9rem;
+      }
+      .navbar-brand img {
+        width: 120px; /* Smaller logo for mobile */
+      }
+      .navbar {
+        padding: 10px 0; /* Reduce navbar padding */
+      }
+      .footer {
+        padding: 10px 0; /* Further reduce footer padding */
+      }
+      .footer h5 {
+        font-size: 1rem; /* Smaller heading */
+      }
+      .footer p, .footer a {
+        font-size: 0.7rem; /* Smaller text */
+      }
+    }
   </style>
 
   <!-- Flipbook Script -->
@@ -168,10 +256,10 @@
         btnShare: { enabled: false },
         btnPrint: { hideOnMobile: true },
         btnDownloadPages: {
-          enabled: true,
+          enabled: false,
           title: "Download pages",
           icon: "fa-download",
-          url: "images/pdf.pdf",
+          url: "images/pdf.rar",
           name: "allPages.zip",
           hideOnMobile: false
         },
@@ -182,16 +270,18 @@
         sideBtnRadius: 60,
         btnSound: { vAlign: "top", hAlign: "left" },
         btnAutoplay: { vAlign: "top", hAlign: "left" },
+        facebook: { enabled: true, url: "your-link-here" }, // Replace with your URL
+        twitter: { enabled: true, url: "your-link-here" }, // Replace with your URL
+        pinterest: { enabled: true, url: "your-link-here" }, // Replace with your URL
         email: {
           enabled: true,
-          url: "aashishfrancis736@gmail.com",
+          url: "your-link-here", // Replace with your URL
           title: "Zen Z: The Millionaire Mindset Kid",
           description: "Discover the magic of Zen Z’s journey in this interactive flipbook!"
         }
       });
     });
   </script>
-
 </head>
 
 <body>
