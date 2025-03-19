@@ -1,0 +1,252 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+  <title>Zen Z’s Millionaire Mindset</title>
+  <link rel="shortcut icon" href="images/favicon.png">
+
+  <!-- Updated jQuery & jQuery UI -->
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/jqueryui/1.12.1/jquery-ui.min.js"></script>
+
+  <!-- Bootstrap CSS -->
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
+
+  <!-- Google Fonts for Modern Typography -->
+  <link href="https://fonts.googleapis.com/css2?family=Fredoka+One&family=Poppins:wght@300;400;600&display=swap" rel="stylesheet">
+
+  <!-- Flipbook CSS & JS -->
+  <link rel="stylesheet" type="text/css" href="css/flipbook.style.css">
+  <link rel="stylesheet" type="text/css" href="css/font-awesome.css">
+  <link rel="stylesheet" type="text/css" href="css/footer.css">
+  <script src="js/flipbook.min.js"></script>
+
+  <!-- Custom CSS -->
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+    body {
+      background: url('https://www.transparenttextures.com/patterns/notebook.png') repeat, #ADD8E6; /* Light blue base from book cover */
+      font-family: 'Poppins', sans-serif;
+      color: #333;
+      position: relative;
+      overflow-x: hidden;
+    }
+    /* Subtle Doodle Overlay */
+    .doodle-overlay {
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      pointer-events: none;
+      background: url('https://i.imgur.com/8Qj5Z5b.png') no-repeat center; /* Replace with your doodle image */
+      opacity: 0.05;
+      z-index: -1;
+    }
+
+    .boxLeft {
+      color: #ff7700e7;
+    }
+
+    /* Navbar */
+    .navbar {
+      background: linear-gradient(to right, #FF4040, #FFD700);
+      padding: 0.5px 0;
+      box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+      
+    }
+    .navbar-brand img {
+      width: 200px;
+      filter: drop-shadow(2px 2px 4px rgba(0,0,0,0.2)); /* Slight shadow for logo pop */
+      transition: transform 0.3s ease;
+    }
+    .navbar-brand img:hover {
+      transform: scale(1.3);
+    }
+
+    /* Main Section */
+    .info {
+      min-height: 80vh;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      padding: 50px 0;
+    }
+    .card {
+      background: #FFFFFF;
+      border-radius: 30px;
+      overflow: hidden;
+      box-shadow: 0 10px 30px rgba(0, 0, 0, 0.15);
+      max-width: 1500px;
+      border: 5px solid #b1acac;
+      position: center;
+    }
+    .book-1 {
+      border-radius: 20px 0 0 20px;
+      object-fit: cover;
+      height: 100%;
+    }
+    #title {
+      font-family: 'Fredoka One', cursive;
+      color: #FF4040; /* Red from cape */
+      font-size: 2.5rem;
+      text-shadow: 2px 2px 4px #FFD700; /* Yellow glow */
+      margin-bottom: 50px;
+    }
+    #author {
+      font-size: 1.2rem;
+      color: #FF8C00; /* Orange for contrast */
+      font-weight: 600;
+    }
+    .btn-primary {
+      background: #FFD700; /* Yellow from book text */
+      color: #333;
+      border: none;
+      border-radius: 30px;
+      padding: 12px 30px;
+      font-family: 'Fredoka One', cursive;
+      font-size: 1.1rem;
+      transition: all 0.3s ease;
+      box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+    }
+    .btn-primary:hover {
+      background: #FF8C00; /* Orange on hover */
+      transform: translateY(-3px);
+      box-shadow: 0 6px 15px rgba(0, 0, 0, 0.2);
+    }
+    .btn-primary i {
+      margin-left: 8px;
+    }
+    
+    /* Footer */
+    .footer {
+      background: linear-gradient(to right, #FF4040, #FFD700); /* Red to yellow gradient */
+      padding: 20px 0;
+      color: #FFFFFF;
+      text-align: center;
+      box-shadow: 0 -2px 10px rgba(0,0,0,0.1); /* Subtle shadow for depth */
+      backdrop-filter: blur(10px); /* Frosted glass blur */
+      -webkit-backdrop-filter: blur(10px); /* Safari support */
+      background-color: rgba(255, 255, 255, 0.2); /* Semi-transparent white fallback */
+      border-top: 5px solid rgba(255, 215, 0, 0.5); /* Semi-transparent yellow border for effect */
+    }
+    .footer h5 {
+      font-family: 'Fredoka One', cursive;
+      color: #FFD700;
+      font-size: 1.5rem;
+      margin-bottom: 15px;
+    }
+    .footer a {
+      color: #FFFFFF;
+      font-size: 1rem;
+      transition: color 0.3s ease;
+    }
+    .footer a:hover {
+      color: #FFD700;
+    }
+    .footer p {
+      font-size: 0.9rem;
+      margin-top: 5px;
+    }
+  </style>
+
+  <!-- Flipbook Script -->
+  <script src="js/flipbook.min.js"></script>
+  <script type="text/javascript">
+    $(document).ready(function () {
+      $("#read").flipBook({
+        pdfUrl: 'pdf/pdf.pdf',
+        lightBox: true,
+        layout: 3,
+        currentPage: { vAlign: "bottom", hAlign: "left" },
+        btnShare: { enabled: false },
+        btnPrint: { hideOnMobile: true },
+        btnDownloadPages: {
+          enabled: true,
+          title: "Download pages",
+          icon: "fa-download",
+          url: "images/pdf.pdf",
+          name: "allPages.zip",
+          hideOnMobile: false
+        },
+        btnColor: 'rgb(255,120,60)',
+        sideBtnColor: 'rgb(255,120,60)',
+        sideBtnSize: 60,
+        sideBtnBackground: "rgba(0,0,0,.7)",
+        sideBtnRadius: 60,
+        btnSound: { vAlign: "top", hAlign: "left" },
+        btnAutoplay: { vAlign: "top", hAlign: "left" },
+        email: {
+          enabled: true,
+          url: "aashishfrancis736@gmail.com",
+          title: "Zen Z: The Millionaire Mindset Kid",
+          description: "Discover the magic of Zen Z’s journey in this interactive flipbook!"
+        }
+      });
+    });
+  </script>
+
+</head>
+
+<body>
+  <!-- Navbar -->
+  <nav class="navbar navbar-expand-lg navbar-light bg-white fixed-top shadow-sm">
+    <div class="container">
+      <a class="navbar-brand" href="index.html"><img src="images/logo.png" alt="Logo"></a>
+    </div>
+  </nav>
+
+  <!-- Main Content -->
+  <section class="info">
+    <div class="container">
+      <div class="card">
+        <div class="row g-0">
+          <div class="col-md-4">
+            <img src="images/book2/1.jpg" class="book-1 w-100" alt="Zen Z Book Cover">
+          </div>
+          <div class="col-md-8 p-5">
+            <h3 id="title">Zen Z: The Millionaire Kid</h3>
+            <h7 class="boxLeft" style="color: #ff7700e7;">A kid with a millionaire mindset grows into a leader 🎯</h7>
+            <br/><br/>
+            <h7 class="boxLeft" style="color: #ff7700e7;">He builds a prosperous family and a thriving nation 🎯</h7>
+            <br/><br/><br/><br/>
+            <div class="button">
+              <a id="read" class="btn btn-primary me-3"><i class="fas fa-book-reader"></i> Start Reading Now</a>
+              <a href="pdf/pdf.pdf" class="btn btn-primary" download><i class="fas fa-download"></i> Download Digital PDF</a>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Footer -->
+  <section class="footer">
+    <div class="container">
+      <div class="row text-center">
+        <div class="row text-center">
+          <h5>Visit Us At:</h5>
+          <ul class="list-unstyled">
+            <li><a href="https://mindyourkids.com">www.mindyourkids.com</a></li>
+          </ul>
+        </div>
+      </div>
+      <div class="row text-center">
+        <p>© 2025 Zen Zephyr. All Rights Reserved.</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- Doodle Overlay -->
+  <div class="doodle-overlay"></div>
+
+  <!-- Bootstrap JS -->
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+</body>
+</html>
