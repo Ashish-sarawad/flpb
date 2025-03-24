@@ -88,6 +88,10 @@
       justify-content: center;
       padding: 50px 0;
     }
+    .info .container {
+      width: 100%; /* Ensure container takes full width */
+      padding: 0; /* Remove Bootstrap's default padding */
+    }
     .card {
       background: #eaf0f0;
       border-radius: 30px;
@@ -216,33 +220,38 @@
     /* Responsive Design for Mobile (below 576px) */
     @media (max-width: 576px) {
       .info {
-        padding: 20px 0; /* Further reduce padding for mobile */
+        padding: 15px 0; /* Further reduce padding for mobile */
+      }
+      .info .container {
+        padding: 0; /* Remove Bootstrap padding */
       }
       .card {
         max-width: 100%; /* Full width for better space usage */
+        margin: 0 5px; /* Very small margin to avoid touching edges */
         border-radius: 15px; /* Smaller border radius */
         border-width: 3px; /* Thinner border */
-        margin: 0 10px; /* Add small margin for better spacing */
       }
       .book-1 {
         border-radius: 15px 15px 0 0; /* Adjust border radius for stacking */
+        height: auto; /* Ensure image scales naturally */
+        max-height: 300px; /* Limit image height to avoid over-stretching */
       }
       .col-md-8 {
-        padding: 20px; /* Slightly increase padding for better readability */
+        padding: 25px; /* Slightly increase padding for better readability */
       }
       #title {
-        font-size: 1.8rem; /* Slightly larger title for better visibility */
-        margin-bottom: 15px;
+        font-size: 2rem; /* Larger title for better visibility */
+        margin-bottom: 20px;
       }
       .boxLeft {
-        font-size: 0.85rem; /* Slightly larger description text */
+        font-size: 1rem; /* Larger description text */
       }
       .btn-primary {
         display: block; /* Stack buttons vertically */
         width: 100%; /* Full-width buttons */
-        margin: 10px 0; /* Add spacing between buttons */
-        padding: 10px 15px; /* Slightly larger buttons */
-        font-size: 1rem; /* Slightly larger font for readability */
+        margin: 15px 0; /* More spacing between buttons */
+        padding: 12px 20px; /* Larger buttons */
+        font-size: 1.1rem; /* Larger font for readability */
       }
       .navbar-brand img {
         width: 140px; /* Slightly larger logo for mobile */
@@ -258,6 +267,27 @@
       }
       .footer p, .footer a {
         font-size: 0.8rem; /* Slightly larger text for readability */
+      }
+    }
+
+    /* Specific Adjustments for Mobile Portrait Mode */
+    @media (max-width: 576px) and (orientation: portrait) {
+      .card {
+        margin: 0 3px; /* Even smaller margin to maximize width */
+        border-radius: 10px; /* Softer corners for mobile portrait */
+      }
+      .book-1 {
+        max-height: 250px; /* Slightly smaller image height for portrait */
+      }
+      #title {
+        font-size: 1.8rem; /* Slightly smaller title to fit narrow width */
+      }
+      .boxLeft {
+        font-size: 0.9rem; /* Adjust description text */
+      }
+      .btn-primary {
+        padding: 10px 15px; /* Slightly smaller buttons to fit narrow width */
+        font-size: 1rem;
       }
     }
   </style>
