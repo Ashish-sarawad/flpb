@@ -34,6 +34,7 @@
       height: 100%; /* Ensure full viewport height */
       margin: 0;
     }
+    
     body {
       background: url('https://www.transparenttextures.com/patterns/notebook.png') repeat, #ADD8E6; /* Light blue base from book cover */
       font-family: 'Poppins', sans-serif;
@@ -235,6 +236,56 @@
       margin-top: 5px;
       color: #FFA07A;
     }
+
+    /* Landscape Prompt */
+.landscape-prompt {
+  display: none; /* Hidden by default */
+  position: fixed;
+  bottom: 60px; /* Above the footer (footer padding is 15px on mobile) */
+  left: 50%;
+  transform: translateX(-50%);
+  background: rgba(255, 255, 255, 0.2); /* Frosted glass effect */
+  backdrop-filter: blur(10px);
+  -webkit-backdrop-filter: blur(10px);
+  border: 1px solid rgba(255, 255, 255, 0.3);
+  border-radius: 20px;
+  padding: 8px 15px;
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+  z-index: 1000;
+  animation: fadeIn 0.5s ease-in-out;
+}
+.landscape-prompt span {
+  color: #FFFFFF;
+  font-family: 'Poppins', sans-serif;
+  font-size: 0.9rem;
+  font-weight: 400;
+  text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.2);
+}
+.landscape-prompt .close-prompt {
+  background: none;
+  border: none;
+  color: #FFFFFF;
+  font-size: 1rem;
+  margin-left: 10px;
+  cursor: pointer;
+  transition: color 0.3s ease;
+}
+.landscape-prompt .close-prompt:hover {
+  color: #FF4040;
+}
+@keyframes fadeIn {
+  from { opacity: 0; transform: translateX(-50%) translateY(20px); }
+  to { opacity: 1; transform: translateX(-50%) translateY(0); }
+}
+
+/* Show prompt only on mobile in portrait mode */
+@media (max-width: 576px) and (orientation: portrait) {
+  .landscape-prompt {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+}
 
     /* Responsive Adjustments for Card and Content */
     /* Extra Small Devices (below 400px) */
@@ -597,6 +648,10 @@
 
   <!-- Doodle Overlay -->
   <div class="doodle-overlay"></div>
+  <div class="landscape-prompt">
+  <span>Best Experience: Read in Landscape 📱🔄</span>
+  <button class="close-prompt">&times;</button>
+  </div>
 
   <!-- Bootstrap JS -->
   <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
