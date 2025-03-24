@@ -251,7 +251,7 @@
   border-radius: 20px;
   padding: 8px 15px;
   box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
-  z-index: 1000;
+  z-index: 1100;
   animation: fadeIn 0.5s ease-in-out;
 }
 .landscape-prompt span {
@@ -290,6 +290,11 @@
     /* Responsive Adjustments for Card and Content */
     /* Extra Small Devices (below 400px) */
     @media (max-width: 400px) {
+      .landscape-prompt {
+        bottom: 50px; /* Slightly closer to the footer on very small screens */
+        padding: 6px 12px; /* Smaller padding */
+        font-size: 0.85rem; /* Slightly smaller font */
+      }
       .info {
         padding-top: 100px; /* Add padding to account for navbar height */
       }
