@@ -56,7 +56,7 @@
 
     /* Navbar */
     .navbar {
-      background: linear-gradient(to right, #FF4040, #FFD700);
+      background: linear-gradient(to left, #ADD8E6, #FFA07A);
       padding: 0.5px 0;
       box-shadow: 0 2px 10px rgba(0,0,0,0.1);
       
@@ -79,7 +79,7 @@
       padding: 50px 0;
     }
     .card {
-      background: #FFFFFF;
+      background: #eaf0f0;
       border-radius: 30px;
       overflow: hidden;
       box-shadow: 0 10px 30px rgba(0, 0, 0, 0.15);
@@ -95,7 +95,7 @@
     }
     #title {
       font-family: 'Fredoka One', cursive;
-      color: #FF4040; /* Red from cape */
+      color: #ff4040c7; /* Red from cape */
       font-size: 2.5rem;
       text-shadow: 2px 2px 4px #FFD700; /* Yellow glow */
       margin-bottom: 30px;
@@ -122,7 +122,7 @@
     
     /* Footer */
     .footer {
-      background: linear-gradient(to right, #FF4040, #FFD700); /* Red to yellow gradient */
+      background: linear-gradient(to right,#ADD8E6); /* Red to yellow gradient */
       padding: 20px 0;
       color: #FFFFFF;
       text-align: center;
@@ -130,25 +130,28 @@
       backdrop-filter: blur(10px); /* Frosted glass blur */
       -webkit-backdrop-filter: blur(10px); /* Safari support */
       background-color: rgba(255, 255, 255, 0.2); /* Semi-transparent white fallback */
-      border-top: 5px solid rgba(255, 215, 0, 0.5); /* Semi-transparent yellow border for effect */
+      border-top: px solid rgba(255, 215, 0, 0.5); /* Semi-transparent yellow border for effect */
     }
     .footer h5 {
       font-family: 'Fredoka One', cursive;
-      color: #FFD700;
-      font-size: 1.5rem;
-      margin-bottom: 15px;
+      color: #ff4040c7;
+      text-shadow: 2px 2px 4px #FFD700;
+      font-size: 2rem;
+      margin-bottom: 1px;
     }
     .footer a {
-      color: #FFFFFF;
+      color: #ff4040c7;
+      text-shadow: 2px 2px 4px #FFD700;
       font-size: 1rem;
       transition: color 0.3s ease;
     }
     .footer a:hover {
-      color: #FFD700;
+      color: #FFA07A;
     }
     .footer p {
       font-size: 0.9rem;
       margin-top: 5px;
+      color: #FFA07A;
     }
 
     /* Responsive Design for Tablets (576px - 992px) */
@@ -256,7 +259,7 @@
         btnShare: { enabled: false },
         btnPrint: { hideOnMobile: true },
         btnDownloadPages: {
-          enabled: false,
+          enabled: true,
           title: "Download pages",
           icon: "fa-download",
           url: "images/pdf.rar",
