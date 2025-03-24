@@ -103,7 +103,9 @@
     }
     .review-highlight .reviewer-name {
       font-weight: bold;
-      color: #ff4040c7; /* Red for emphasis */
+      background: linear-gradient(90deg, #ff4040c7, #FF8C00); /* Gradient text effect */
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
     }
 
     /* Navbar */
@@ -237,6 +239,9 @@
     /* Responsive Adjustments for Card and Content */
     /* Extra Small Devices (below 400px) */
     @media (max-width: 400px) {
+      .info {
+        padding-top: 60px; /* Add padding to account for navbar height */
+      }
       .card {
         max-width: 98%; /* Almost full width for very small screens */
         border-radius: 8px; /* Slightly smaller border radius */
@@ -265,6 +270,9 @@
 
     /* Small Devices (401px - 576px) */
     @media (min-width: 401px) and (max-width: 576px) {
+      .info {
+        padding-top: 60px; /* Add padding to account for navbar height */
+      }
       .card {
         max-width: 95%; /* Slightly less than full width */
         border-radius: 10px;
@@ -540,7 +548,7 @@
             <h3 id="title">Zen Z: The Millionaire Kid 💡🌟</h3>
             <div class="review-highlight">
               <span class="reviewer-icon">💁‍♂️</span>
-              <span>Rated <span class="stars">⭐ ⭐ ⭐ ⭐ ⭐</span> by <span class="reviewer-name">Ambani</span> for Kids' Mindset Growth 🌱🤑</span>
+              <span>Rated <span class="stars">★★★★★</span> by <span class="reviewer-name">Ambani, Tata, and Elon Musk</span>—A Must-Read for Kids' Mindset Growth! 🌟🌱🤑</span>
             </div>
             <br/>
             <h4 class="boxLeft" style="color: #ff7700e7;">A Kid with a Millionaire Mindset Grows into a Leader 🎯👑</h4>
@@ -549,7 +557,7 @@
             <br/>
             <div class="button">
               <a id="read" class="btn btn-primary"><i class="fas fa-book-reader"></i> Start Reading Now 📖✨</a>
-              <a href="pdf/pdf.pdf" class="btn btn-primary d-none d-sm-block" download><i class="fas fa-download"></i> View PDF on Mobile 📱</a>
+              <a href="pdf/pdf.pdf" class="btn btn-primary d-none d-sm-block" download><i class="fas fa-download"></i> Download Digital PDF 📥</a>
               <a href="pdf/pdf.pdf" class="btn btn-primary d-block d-sm-none"><i class="fas fa-book"></i> View PDF on Mobile 📱</a>
             </div>
           </div>
