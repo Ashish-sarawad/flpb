@@ -106,14 +106,19 @@
     }
     .book-1 {
       border-radius: 10px 10px 0 0; /* Stacked layout for mobile */
-      object-fit: cover;
+      object-fit: contain; /* Show full image without cropping */
       height: auto; /* Scale naturally */
-      max-height: 250px; /* Limit image height for mobile */
-      width: 100%;
+      width: 100%; /* Full width of container */
+      max-width: 100%; /* Ensure it doesn't overflow */
     }
     .col-md-4, .col-md-8 {
       flex: 0 0 100%; /* Stack columns vertically by default */
       max-width: 100%;
+    }
+    .col-md-4 {
+      display: flex;
+      justify-content: center; /* Center the image horizontally */
+      align-items: center; /* Center the image vertically */
     }
     .col-md-8 {
       padding: 25px; /* Base padding for mobile */
@@ -237,7 +242,7 @@
       }
       .book-1 {
         border-radius: 20px 0 0 20px; /* Side-by-side layout for desktops */
-        max-height: none; /* Remove height limit */
+        object-fit: cover; /* Use cover for desktops to fill space */
         height: 100%; /* Full height for side-by-side layout */
       }
       .col-md-4 {
@@ -273,6 +278,14 @@
       }
       .footer p {
         font-size: 0.9rem; /* Slightly larger text */
+      }
+    }
+
+    /* Specific Adjustments for Mobile Portrait Mode */
+    @media (max-width: 576px) and (orientation: portrait) {
+      .book-1 {
+        max-height: 300px; /* Slightly larger height to accommodate full image */
+        max-width: 100%; /* Ensure it fits within the container */
       }
     }
   </style>
