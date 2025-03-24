@@ -23,7 +23,7 @@
   <link rel="stylesheet" type="text/css" href="css/footer.css">
   <script src="js/flipbook.min.js"></script>
 
-  <!-- Custom CSS -->
+  <!-- Custom CSS (Mobile-First Approach) -->
   <style>
     * {
       margin: 0;
@@ -57,14 +57,17 @@
       z-index: -1;
     }
 
+    /* Base Styles (Mobile-First) */
     .boxLeft {
       color: #ff7700e7;
+      font-size: 1.1rem; /* Base font size for mobile */
+      line-height: 1.5; /* Improve readability */
     }
 
     /* Navbar */
     .navbar {
       background: linear-gradient(to left, #ADD8E6, #FFA07A); /* Light blue to soft orange gradient */
-      padding: 15px 0; /* Increased padding for better visibility */
+      padding: 12px 0; /* Base padding for mobile */
       box-shadow: 0 2px 10px rgba(0,0,0,0.1);
       backdrop-filter: blur(10px); /* Frosted glass blur */
       -webkit-backdrop-filter: blur(10px); /* Safari support */
@@ -72,7 +75,7 @@
       border-bottom: 1px solid rgba(255, 255, 255, 0.3); /* Subtle border for definition */
     }
     .navbar-brand img {
-      width: 200px;
+      width: 140px; /* Base logo size for mobile */
       filter: drop-shadow(2px 2px 4px rgba(0,0,0,0.2)); /* Slight shadow for logo pop */
       transition: transform 0.3s ease;
     }
@@ -86,7 +89,7 @@
       display: flex;
       align-items: center;
       justify-content: center;
-      padding: 50px 0;
+      padding: 15px 0; /* Base padding for mobile */
     }
     .info .container {
       width: 100%; /* Ensure container takes full width */
@@ -94,36 +97,48 @@
     }
     .card {
       background: #eaf0f0;
-      border-radius: 30px;
+      border-radius: 10px; /* Base border radius for mobile */
       overflow: hidden;
       box-shadow: 0 10px 30px rgba(0, 0, 0, 0.15);
-      max-width: 1500px;
-      border: 5px solid #b1acac; /* Red border from cape */
-      position: center;
+      max-width: 100%; /* Full width for mobile */
+      margin: 0 3px; /* Minimal margin for mobile */
+      border: 3px solid #b1acac; /* Thinner border for mobile */
     }
     .book-1 {
-      border-radius: 20px 0 0 20px;
+      border-radius: 10px 10px 0 0; /* Stacked layout for mobile */
       object-fit: cover;
-      height: 100%;
+      height: auto; /* Scale naturally */
+      max-height: 250px; /* Limit image height for mobile */
       width: 100%;
+    }
+    .col-md-4, .col-md-8 {
+      flex: 0 0 100%; /* Stack columns vertically by default */
+      max-width: 100%;
+    }
+    .col-md-8 {
+      padding: 25px; /* Base padding for mobile */
     }
     #title {
       font-family: 'Fredoka One', cursive;
       color: #ff4040c7; /* Red from cape */
-      font-size: 2.5rem;
+      font-size: 1.8rem; /* Base title size for mobile */
       text-shadow: 2px 2px 4px #FFD700; /* Yellow glow */
-      margin-bottom: 30px;
+      margin-bottom: 20px;
     }
     .btn-primary {
       background: #FFD700; /* Yellow from book text */
       color: #333;
       border: none;
       border-radius: 30px;
-      padding: 12px 30px;
+      padding: 12px 20px; /* Base padding for mobile */
       font-family: 'Fredoka One', cursive;
-      font-size: 1.1rem;
+      font-size: 1.1rem; /* Base font size for mobile */
       transition: all 0.3s ease;
       box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+      display: block; /* Stack buttons vertically by default */
+      width: 100%; /* Full-width buttons for mobile */
+      margin: 15px 0; /* Spacing between buttons */
+      touch-action: manipulation; /* Improve touch responsiveness */
     }
     .btn-primary:hover {
       background: #FF8C00; /* Orange on hover */
@@ -133,11 +148,11 @@
     .btn-primary i {
       margin-left: 8px;
     }
-    
+
     /* Footer */
     .footer {
       background: linear-gradient(to right, #ADD8E6); /* Light blue gradient */
-      padding: 20px 0;
+      padding: 15px 0; /* Base padding for mobile */
       color: #FFFFFF;
       text-align: center;
       box-shadow: 0 -2px 10px rgba(0,0,0,0.1); /* Subtle shadow for depth */
@@ -151,143 +166,113 @@
       font-family: 'Fredoka One', cursive;
       color: #ff4040c7;
       text-shadow: 2px 2px 4px #FFD700;
-      font-size: 2rem;
+      font-size: 1.2rem; /* Base heading size for mobile */
       margin-bottom: 1px;
     }
     .footer a {
       color: #ff4040c7;
       text-shadow: 2px 2px 4px #FFD700;
-      font-size: 1rem;
+      font-size: 0.8rem; /* Base font size for mobile */
       transition: color 0.3s ease;
     }
     .footer a:hover {
       color: #FFA07A;
     }
     .footer p {
-      font-size: 0.9rem;
+      font-size: 0.8rem; /* Base font size for mobile */
       margin-top: 5px;
       color: #FFA07A;
     }
 
-    /* Responsive Design for Tablets (576px - 992px) */
-    @media (max-width: 992px) {
+    /* Adjustments for Tablets (min-width: 577px) */
+    @media (min-width: 577px) {
       .info {
-        padding: 30px 0; /* Reduce padding for tablets */
+        padding: 30px 0; /* Increase padding for tablets */
       }
       .card {
         max-width: 90%; /* Slightly smaller card width */
-        border-radius: 20px; /* Slightly smaller border radius */
+        border-radius: 20px; /* Larger border radius for tablets */
+        border-width: 4px; /* Slightly thicker border */
+        margin: 0 10px; /* Slightly larger margin */
       }
       .book-1 {
-        border-radius: 20px 20px 0 0; /* Adjust border radius for stacking */
-        height: auto; /* Allow image to scale naturally */
-      }
-      .col-md-4, .col-md-8 {
-        flex: 0 0 100%; /* Stack columns vertically */
-        max-width: 100%;
-      }
-      .col-md-8 {
-        padding: 20px; /* Reduce padding inside card */
+        max-height: 350px; /* Larger image height for tablets */
       }
       #title {
-        font-size: 2rem; /* Smaller title */
-        margin-bottom: 20px;
+        font-size: 2rem; /* Larger title for tablets */
       }
       .boxLeft {
-        font-size: 0.9rem; /* Smaller description text */
+        font-size: 1.2rem; /* Larger description text for tablets */
       }
       .btn-primary {
-        padding: 10px 20px; /* Smaller buttons */
-        font-size: 1rem;
+        padding: 12px 25px; /* Slightly larger buttons */
+        font-size: 1.2rem; /* Larger font for buttons */
       }
       .navbar-brand img {
-        width: 150px; /* Smaller logo for tablets */
+        width: 150px; /* Larger logo for tablets */
       }
       .navbar {
-        padding: 10px 0; /* Slightly reduce padding */
+        padding: 15px 0; /* Slightly increase padding */
       }
       .footer {
-        padding: 15px 0; /* Reduce footer padding */
+        padding: 20px 0; /* Increase footer padding */
       }
       .footer h5 {
-        font-size: 1.5rem; /* Smaller heading */
+        font-size: 1.5rem; /* Larger heading */
       }
       .footer p, .footer a {
-        font-size: 0.8rem; /* Smaller text */
+        font-size: 0.9rem; /* Larger text */
       }
     }
 
-    /* Responsive Design for Mobile (below 576px) */
-    @media (max-width: 576px) {
+    /* Adjustments for Desktops (min-width: 993px) */
+    @media (min-width: 993px) {
       .info {
-        padding: 15px 0; /* Further reduce padding for mobile */
-      }
-      .info .container {
-        padding: 0; /* Remove Bootstrap padding */
+        padding: 50px 0; /* Larger padding for desktops */
       }
       .card {
-        max-width: 100%; /* Full width for better space usage */
-        margin: 0 5px; /* Very small margin to avoid touching edges */
-        border-radius: 15px; /* Smaller border radius */
-        border-width: 3px; /* Thinner border */
+        max-width: 1500px; /* Larger card width for desktops */
+        border-radius: 30px; /* Larger border radius */
+        border-width: 5px; /* Thicker border */
       }
       .book-1 {
-        border-radius: 15px 15px 0 0; /* Adjust border radius for stacking */
-        height: auto; /* Ensure image scales naturally */
-        max-height: 300px; /* Limit image height to avoid over-stretching */
+        border-radius: 20px 0 0 20px; /* Side-by-side layout for desktops */
+        max-height: none; /* Remove height limit */
+        height: 100%; /* Full height for side-by-side layout */
+      }
+      .col-md-4 {
+        flex: 0 0 33.333333%; /* 4 columns for image */
+        max-width: 33.333333%;
       }
       .col-md-8 {
-        padding: 25px; /* Slightly increase padding for better readability */
+        flex: 0 0 66.666667%; /* 8 columns for text */
+        max-width: 66.666667%;
+        padding: 40px; /* Larger padding for desktops */
       }
       #title {
-        font-size: 2rem; /* Larger title for better visibility */
-        margin-bottom: 20px;
+        font-size: 2.5rem; /* Larger title for desktops */
       }
       .boxLeft {
-        font-size: 1rem; /* Larger description text */
+        font-size: 1.3rem; /* Larger description text for desktops */
       }
       .btn-primary {
-        display: block; /* Stack buttons vertically */
-        width: 100%; /* Full-width buttons */
-        margin: 15px 0; /* More spacing between buttons */
-        padding: 12px 20px; /* Larger buttons */
-        font-size: 1.1rem; /* Larger font for readability */
+        display: inline-block; /* Side-by-side buttons for desktops */
+        width: auto; /* Auto width for desktops */
+        margin: 0 10px 0 0; /* Adjust margin for side-by-side layout */
+        padding: 12px 30px; /* Larger buttons */
+        font-size: 1.3rem; /* Larger font for buttons */
       }
       .navbar-brand img {
-        width: 140px; /* Slightly larger logo for mobile */
-      }
-      .navbar {
-        padding: 12px 0; /* Increase padding for better visibility */
-      }
-      .footer {
-        padding: 15px 0; /* Slightly increase footer padding */
+        width: 200px; /* Larger logo for desktops */
       }
       .footer h5 {
-        font-size: 1.2rem; /* Slightly larger heading */
+        font-size: 2rem; /* Larger heading for desktops */
       }
-      .footer p, .footer a {
-        font-size: 0.8rem; /* Slightly larger text for readability */
+      .footer a {
+        font-size: 1rem; /* Larger text for desktops */
       }
-    }
-
-    /* Specific Adjustments for Mobile Portrait Mode */
-    @media (max-width: 576px) and (orientation: portrait) {
-      .card {
-        margin: 0 3px; /* Even smaller margin to maximize width */
-        border-radius: 10px; /* Softer corners for mobile portrait */
-      }
-      .book-1 {
-        max-height: 250px; /* Slightly smaller image height for portrait */
-      }
-      #title {
-        font-size: 1.8rem; /* Slightly smaller title to fit narrow width */
-      }
-      .boxLeft {
-        font-size: 0.9rem; /* Adjust description text */
-      }
-      .btn-primary {
-        padding: 10px 15px; /* Slightly smaller buttons to fit narrow width */
-        font-size: 1rem;
+      .footer p {
+        font-size: 0.9rem; /* Slightly larger text */
       }
     }
   </style>
@@ -348,18 +333,18 @@
           <div class="col-md-4">
             <img src="images/book2/1.jpg" class="book-1 w-100" alt="Zen Z Book Cover">
           </div>
-          <div class="col-md-8 p-5">
+          <div class="col-md-8">
             <h3 id="title">Zen Z: The Millionaire Kid</h3>
-            <br/><br/>
             <h4 class="boxLeft" style="color: #ff7700e7;">Recommended by Ambani's for kids mindset growth in right direction 🤑</h4>
-            <br/><br/>
+            <br/>
             <h4 class="boxLeft" style="color: #ff7700e7;">A kid with a millionaire mindset grows into a leader 🎯</h4>
-            <br/><br/>
+            <br/>
             <h4 class="boxLeft" style="color: #ff7700e7;">He builds a prosperous family and a thriving nation 🎯</h4>
-            <br/><br/>
+            <br/>
             <div class="button">
-              <a id="read" class="btn btn-primary me-3"><i class="fas fa-book-reader"></i> Start Reading Now</a>
-              <a href="pdf/pdf.pdf" class="btn btn-primary" download><i class="fas fa-download"></i> Download Digital PDF</a>
+              <a id="read" class="btn btn-primary"><i class="fas fa-book-reader"></i> Start Reading Now</a>
+              <a href="pdf/pdf.pdf" class="btn btn-primary d-none d-sm-block" download><i class="fas fa-download"></i> Download Digital PDF</a>
+              <a href="pdf/pdf.pdf" class="btn btn-primary d-block d-sm-none"><i class="fas fa-book"></i> View PDF on Mobile</a>
             </div>
           </div>
         </div>
