@@ -96,13 +96,16 @@
       padding: 0; /* Remove Bootstrap's default padding */
     }
     .card {
-      background: #eaf0f0;
+      /* Frosted Glass Effect */
+      background: rgba(255, 255, 255, 0.2); /* Semi-transparent white background */
+      backdrop-filter: blur(10px); /* Blur the background behind the card */
+      -webkit-backdrop-filter: blur(10px); /* Safari support */
+      border: 1px solid rgba(255, 255, 255, 0.3); /* Subtle white border */
       border-radius: 10px; /* Base border radius for mobile */
       overflow: hidden;
-      box-shadow: 0 10px 30px rgba(0, 0, 0, 0.15);
+      box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1); /* Softer shadow for floating effect */
       max-width: 100%; /* Full width for mobile */
       margin: 0 3px; /* Minimal margin for mobile */
-      border: 3px solid #b1acac; /* Thinner border for mobile */
     }
     .book-1 {
       border-radius: 10px 10px 0 0; /* Stacked layout for mobile */
@@ -197,7 +200,7 @@
       .card {
         max-width: 90%; /* Slightly smaller card width */
         border-radius: 20px; /* Larger border radius for tablets */
-        border-width: 4px; /* Slightly thicker border */
+        border-width: 1px; /* Keep border width consistent */
         margin: 0 10px; /* Slightly larger margin */
       }
       .book-1 {
@@ -238,7 +241,7 @@
       .card {
         max-width: 1500px; /* Larger card width for desktops */
         border-radius: 30px; /* Larger border radius */
-        border-width: 5px; /* Thicker border */
+        border-width: 1px; /* Keep border width consistent */
       }
       .book-1 {
         border-radius: 20px 0 0 20px; /* Side-by-side layout for desktops */
